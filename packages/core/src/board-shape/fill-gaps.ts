@@ -1,4 +1,4 @@
-import {LINE, IMAGE_REGION, IMAGE_PATH} from '@tracespace/plotter'
+import {LINE, IMAGE_REGION, IMAGE_PATH} from '@hpcreery/tracespace-plotter'
 
 import type {
   ImagePath,

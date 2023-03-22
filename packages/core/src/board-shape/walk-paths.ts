@@ -1,4 +1,4 @@
-import type {PathSegment, Position, ArcPosition} from '@tracespace/plotter'
+import type {PathSegment, Position, ArcPosition} from '@hpcreery/tracespace-plotter'
 
 export interface PathWalk {
   start: Position

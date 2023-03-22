@@ -46,9 +46,9 @@
   "homepage": "https://github.com/tracespace/tracespace#readme",
   "dependencies": {
     "@tracespace/identify-layers": "workspace:*",
-    "@tracespace/parser": "workspace:*",
-    "@tracespace/plotter": "workspace:*",
-    "@tracespace/renderer": "workspace:*",
+    "@hpcreery/tracespace-parser": "workspace:*",
+    "@hpcreery/tracespace-plotter": "workspace:*",
+    "@hpcreery/tracespace-renderer": "workspace:*",
     "@tracespace/xml-id": "workspace:*"
   },
   "devDependencies": {

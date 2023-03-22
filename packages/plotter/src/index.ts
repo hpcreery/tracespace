@@ -1,6 +1,6 @@
 // @tracespace/plotter
 // build abstract board images from @tracespace/parser ASTs
-import type {GerberTree} from '@tracespace/parser'
+import type {GerberTree} from '@hpcreery/tracespace-parser'
 
 import {fromGraphics as sizeFromGraphics} from './bounding-box'
 import {getPlotOptions} from './options'

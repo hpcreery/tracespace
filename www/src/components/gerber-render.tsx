@@ -3,13 +3,13 @@ import {useMemo, useRef, useEffect} from 'preact/hooks'
 import stringifyObject from 'json-stringify-pretty-compact'
 
 import {stringifySvg} from '@tracespace/core'
-import type {GerberTree, GerberNode} from '@tracespace/parser'
-import {createParser} from '@tracespace/parser'
-import type {ImageTree, ImageNode} from '@tracespace/plotter'
-import {plot} from '@tracespace/plotter'
-import {render} from '@tracespace/renderer'
+import type {GerberTree, GerberNode} from '@hpcreery/tracespace-parser'
+import {createParser} from '@hpcreery/tracespace-parser'
+import type {ImageTree, ImageNode} from '@hpcreery/tracespace-plotter'
+import {plot} from '@hpcreery/tracespace-plotter'
+import {render} from '@hpcreery/tracespace-renderer'
 
-import type {SvgElement} from '@tracespace/renderer'
+import type {SvgElement} from '@hpcreery/tracespace-renderer'
 
 export interface GerberFixture {
   contents: string

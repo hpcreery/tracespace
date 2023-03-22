@@ -1,5 +1,5 @@
-import type {SimpleShape} from '@tracespace/parser'
-import {CIRCLE, RECTANGLE, OBROUND, POLYGON} from '@tracespace/parser'
+import type {SimpleShape} from '@hpcreery/tracespace-parser'
+import {CIRCLE, RECTANGLE, OBROUND, POLYGON} from '@hpcreery/tracespace-parser'
 
 import {
   HALF_PI,

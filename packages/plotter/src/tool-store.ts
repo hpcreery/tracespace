@@ -5,13 +5,13 @@ import type {
   SimpleShape,
   HoleShape,
   MacroBlock,
-} from '@tracespace/parser'
+} from '@hpcreery/tracespace-parser'
 import {
   MACRO_SHAPE,
   TOOL_CHANGE,
   TOOL_DEFINITION,
   TOOL_MACRO,
-} from '@tracespace/parser'
+} from '@hpcreery/tracespace-parser'
 
 export const SIMPLE_TOOL = 'simpleTool'
 

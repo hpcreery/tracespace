@@ -1,16 +1,16 @@
 {
-  "name": "@tracespace/parser",
+  "name": "@hpcreery/tracespace-parser",
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.0.0-alpha.0",
+  "version": "5.0.0-alpha.3",
   "description": "Parse Gerber/drill files into abstract syntax trees.",
   "types": "./lib/index.d.ts",
   "exports": {
     "types": "./lib/index.d.ts",
     "source": "./src/index.ts",
-    "import": "./dist/tracespace-parser.js",
-    "require": "./dist/tracespace-parser.umd.cjs"
+    "import": "./dist/hpcreery-tracespace-parser.js",
+    "require": "./dist/hpcreery-tracespace-parser.umd.cjs"
   },
   "files": [
     "dist",

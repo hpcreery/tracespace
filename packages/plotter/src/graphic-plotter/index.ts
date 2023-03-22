@@ -22,7 +22,7 @@ import {
   INTERPOLATE_MODE,
   QUADRANT_MODE,
   REGION_MODE,
-} from '@tracespace/parser'
+} from '@hpcreery/tracespace-parser'
 
 import * as Tree from '../tree'
 import type {Tool} from '../tool-store'

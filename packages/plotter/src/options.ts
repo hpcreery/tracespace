@@ -3,7 +3,7 @@ import type {
   UnitsType,
   Format,
   ZeroSuppression,
-} from '@tracespace/parser'
+} from '@hpcreery/tracespace-parser'
 import {
   UNITS,
   COORDINATE_FORMAT,
@@ -12,7 +12,7 @@ import {
   LEADING,
   TRAILING,
   IN,
-} from '@tracespace/parser'
+} from '@hpcreery/tracespace-parser'
 
 export interface PlotOptions {
   units: UnitsType

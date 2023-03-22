@@ -1,5 +1,5 @@
 // Plot a tool macro as shapes
-import type {MacroPrimitiveCode, MacroValue} from '@tracespace/parser'
+import type {MacroPrimitiveCode, MacroValue} from '@hpcreery/tracespace-parser'
 import {
   MACRO_VARIABLE,
   MACRO_PRIMITIVE,
@@ -12,7 +12,7 @@ import {
   MACRO_POLYGON,
   MACRO_MOIRE_DEPRECATED,
   MACRO_THERMAL,
-} from '@tracespace/parser'
+} from '@hpcreery/tracespace-parser'
 
 import {PI, rotateAndShift, positionsEqual} from '../coordinate-math'
 

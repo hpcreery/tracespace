@@ -1,15 +1,15 @@
 import {s} from 'hastscript'
 
-import * as parser from '@tracespace/parser'
-import * as plotter from '@tracespace/plotter'
-import * as renderer from '@tracespace/renderer'
+import * as parser from '@hpcreery/tracespace-parser'
+import * as plotter from '@hpcreery/tracespace-plotter'
+import * as renderer from '@hpcreery/tracespace-renderer'
 import {random as randomId} from '@tracespace/xml-id'
 import {SIDE_TOP, SIDE_BOTTOM} from '@tracespace/identify-layers'
 
-import type {GerberTree} from '@tracespace/parser'
-import type {ImageTree} from '@tracespace/plotter'
+import type {GerberTree} from '@hpcreery/tracespace-parser'
+import type {ImageTree} from '@hpcreery/tracespace-plotter'
 import type {GerberType, GerberSide} from '@tracespace/identify-layers'
-import type {SvgElement, ViewBox} from '@tracespace/renderer'
+import type {SvgElement, ViewBox} from '@hpcreery/tracespace-renderer'
 
 import {readFile} from './read-file'
 import {determineLayerTypes} from './determine-layer-types'

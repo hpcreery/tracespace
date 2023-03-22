@@ -1,6 +1,6 @@
 // Track the location of the plotter and parse coordinate strings
-import type {GerberNode} from '@tracespace/parser'
-import {GRAPHIC, TRAILING} from '@tracespace/parser'
+import type {GerberNode} from '@hpcreery/tracespace-parser'
+import {GRAPHIC, TRAILING} from '@hpcreery/tracespace-parser'
 
 import type {PlotOptions} from './options'
 

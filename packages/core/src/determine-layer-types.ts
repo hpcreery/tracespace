@@ -1,8 +1,8 @@
-import {DRILL, GERBER} from '@tracespace/parser'
+import {DRILL, GERBER} from '@hpcreery/tracespace-parser'
 import {TYPE_DRILL, SIDE_ALL, identifyLayers} from '@tracespace/identify-layers'
 
 import type {LayerIdentity} from '@tracespace/identify-layers'
-import type {GerberTree} from '@tracespace/parser'
+import type {GerberTree} from '@hpcreery/tracespace-parser'
 
 export interface ParsedLayer {
   id: string

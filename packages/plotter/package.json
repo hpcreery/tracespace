@@ -1,16 +1,16 @@
 {
-  "name": "@tracespace/plotter",
+  "name": "@hpcreery/tracespace-plotter",
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.0.0-alpha.0",
+  "version": "5.0.0-alpha.4",
   "description": "Plot @tracespace/parser ASTs into image trees.",
   "types": "./lib/index.d.ts",
   "exports": {
     "types": "./lib/index.d.ts",
     "source": "./src/index.ts",
-    "import": "./dist/tracespace-plotter.js",
-    "require": "./dist/tracespace-plotter.umd.cjs"
+    "import": "./dist/hpcreery-tracespace-plotter.js",
+    "require": "./dist/hpcreery-tracespace-plotter.umd.cjs"
   },
   "files": [
     "dist",
@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/tracespace/tracespace#readme",
   "dependencies": {
-    "@tracespace/parser": "workspace:*",
+    "@hpcreery/tracespace-parser": "workspace:*",
     "@types/unist": "^2.0.6"
   }
 }

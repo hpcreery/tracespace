@@ -1,16 +1,16 @@
 {
-  "name": "@tracespace/renderer",
+  "name": "@hpcreery/tracespace-renderer",
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.0.0-alpha.0",
+  "version": "5.0.0-alpha.4",
   "description": "Render @tracespace/plotter image trees as SVGs.",
   "types": "./lib/index.d.ts",
   "exports": {
     "types": "./lib/index.d.ts",
     "source": "./src/index.ts",
-    "import": "./dist/tracespace-renderer.js",
-    "require": "./dist/tracespace-renderer.umd.cjs"
+    "import": "./dist/hpcreery-tracespace-renderer.js",
+    "require": "./dist/hpcreery-tracespace-renderer.umd.cjs"
   },
   "files": [
     "dist",
@@ -44,8 +44,8 @@
   },
   "homepage": "https://github.com/tracespace/tracespace#readme",
   "dependencies": {
-    "@tracespace/parser": "workspace:*",
-    "@tracespace/plotter": "workspace:*",
+    "@hpcreery/tracespace-parser": "workspace:*",
+    "@hpcreery/tracespace-plotter": "workspace:*",
     "@tracespace/xml-id": "workspace:*",
     "@types/hast": "^2.3.4"
   },

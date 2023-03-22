@@ -1,6 +1,6 @@
 import {s} from 'hastscript'
 
-import type {ImageTree} from '@tracespace/plotter'
+import type {ImageTree} from '@hpcreery/tracespace-plotter'
 
 import {renderGraphic, renderTreeGraphics, sizeToViewBox} from './render'
 import type {SvgElement, ViewBox} from './types'

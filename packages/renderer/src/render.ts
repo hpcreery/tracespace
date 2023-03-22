@@ -10,7 +10,7 @@ import type {
   Shape,
   ImageTree,
   SizeEnvelope,
-} from '@tracespace/plotter'
+} from '@hpcreery/tracespace-plotter'
 import {
   BoundingBox,
   positionsEqual,
@@ -22,8 +22,8 @@ import {
   OUTLINE,
   LAYERED_SHAPE,
   LINE,
-} from '@tracespace/plotter'
-import {DARK, CLEAR} from '@tracespace/parser'
+} from '@hpcreery/tracespace-plotter'
+import {DARK, CLEAR} from '@hpcreery/tracespace-parser'
 
 import type {SvgElement, ViewBox} from './types'
 

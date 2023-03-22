@@ -1,5 +1,5 @@
-import {IMAGE_PATH, IMAGE_REGION, BoundingBox} from '@tracespace/plotter'
-import {renderGraphic, sizeToViewBox} from '@tracespace/renderer'
+import {IMAGE_PATH, IMAGE_REGION, BoundingBox} from '@hpcreery/tracespace-plotter'
+import {renderGraphic, sizeToViewBox} from '@hpcreery/tracespace-renderer'
 
 import type {
   ImageTree,
@@ -7,8 +7,8 @@ import type {
   ImageRegion,
   SizeEnvelope,
   Polarity,
-} from '@tracespace/plotter'
-import type {SvgElement, ViewBox} from '@tracespace/renderer'
+} from '@hpcreery/tracespace-plotter'
+import type {SvgElement, ViewBox} from '@hpcreery/tracespace-renderer'
 
 import type {Layer} from '..'
 import {getOutlineLayer} from '../sort-layers'

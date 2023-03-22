@@ -27,9 +27,9 @@
     "@tracespace/core": "workspace:*",
     "@tracespace/fixtures": "workspace:*",
     "@tracespace/identify-layers": "workspace:*",
-    "@tracespace/parser": "workspace:*",
-    "@tracespace/plotter": "workspace:*",
-    "@tracespace/renderer": "workspace:*",
+    "@hpcreery/tracespace-parser": "workspace:*",
+    "@hpcreery/tracespace-plotter": "workspace:*",
+    "@hpcreery/tracespace-renderer": "workspace:*",
     "@tracespace/www": "workspace:*",
     "@tracespace/xml-id": "workspace:*"
   },
