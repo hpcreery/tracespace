@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest'
 
-import {LINE} from '@tracespace/plotter'
+import {LINE} from '@hpcreery/tracespace-plotter'
 
 import * as subject from '../walk-paths'
 

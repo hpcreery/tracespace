@@ -7,15 +7,15 @@ Use Gerber/drill files to create an SVG render of a finished PCB in Node.js or t
 This library contains the main logic for tracespace's render pipeline, built up of the following lower-level libraries:
 
 - [@tracespace/identify-layers][]
-- [@tracespace/parser][]
-- [@tracespace/plotter][]
-- [@tracespace/renderer][]
+- [@hpcreery/tracespace-parser][]
+- [@hpcreery/tracespace-plotter][]
+- [@hpcreery/tracespace-renderer][]
 
 [tracespace]: https://github.com/tracespace/tracespace
 [@tracespace/identify-layers]: ../identify-layers
-[@tracespace/parser]: ../parser
-[@tracespace/plotter]: ../plotter
-[@tracespace/renderer]: ../renderer
+[@hpcreery/tracespace-parser]: ../parser
+[@hpcreery/tracespace-plotter]: ../plotter
+[@hpcreery/tracespace-renderer]: ../renderer
 [npm package]: https://www.npmjs.com/package/@tracespace/core/v/next
 [npm badge]: https://img.shields.io/npm/v/@tracespace/core/next?style=flat-square
 

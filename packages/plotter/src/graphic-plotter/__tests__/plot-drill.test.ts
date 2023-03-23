@@ -1,7 +1,7 @@
 // Tests for plotting drill file objects using the GraphicPlotter interface
 import {describe, it, beforeEach, expect} from 'vitest'
 
-import * as Parser from '@tracespace/parser'
+import * as Parser from '@hpcreery/tracespace-parser'
 
 import * as Tree from '../../tree'
 import type {Tool} from '../../tool-store'

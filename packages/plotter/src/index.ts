@@ -1,5 +1,5 @@
-// @tracespace/plotter
-// build abstract board images from @tracespace/parser ASTs
+// @hpcreery/tracespace-plotter
+// build abstract board images from @hpcreery/tracespace-parser ASTs
 import type {GerberTree} from '@hpcreery/tracespace-parser'
 
 import {fromGraphics as sizeFromGraphics} from './bounding-box'

@@ -150,7 +150,7 @@ importers:
 
   packages/plotter:
     specifiers:
-      '@hpcreery/tracespace-parser': ^5.0.0-alpha.3
+      '@hpcreery/tracespace-parser': workspace:*
       '@types/unist': ^2.0.6
     dependencies:
       '@hpcreery/tracespace-parser': link:../parser
@@ -158,9 +158,9 @@ importers:
 
   packages/renderer:
     specifiers:
-      '@hpcreery/tracespace-parser': ^5.0.0-alpha.3
-      '@hpcreery/tracespace-plotter': ^5.0.0-alpha.4
-      '@tracespace/xml-id': latest
+      '@hpcreery/tracespace-parser': workspace:*
+      '@hpcreery/tracespace-plotter': workspace:*
+      '@tracespace/xml-id': workspace:*
       '@types/hast': ^2.3.4
       '@types/unist': ^2.0.6
       hastscript: ^7.2.0

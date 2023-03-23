@@ -25,7 +25,7 @@ export interface Lexer {
  *
  * @example
  * ```ts
- * import {createLexer} from '@tracespace/parser'
+ * import {createLexer} from '@hpcreery/tracespace-parser'
  *
  * const lexer = createLexer()
  * const tokens = lexer.feed('G04 gerber string*\nM02*\n')

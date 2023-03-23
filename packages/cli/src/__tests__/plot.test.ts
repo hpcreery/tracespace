@@ -2,7 +2,7 @@ import {describe, it, beforeEach, afterEach} from 'vitest'
 import {replaceEsm, reset} from 'testdouble-vitest'
 import * as td from 'testdouble'
 
-import type {ImageTree} from '@tracespace/plotter'
+import type {ImageTree} from '@hpcreery/tracespace-plotter'
 import type {ReadResult, PlotResult} from '@tracespace/core'
 
 describe('tracespace CLI plot command', () => {

@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest'
 
-import * as Plotter from '@tracespace/plotter'
+import * as Plotter from '@hpcreery/tracespace-plotter'
 import {shapeToElement as mapShapeToElement} from '../render'
 
 describe('mapping a shape to an element', () => {

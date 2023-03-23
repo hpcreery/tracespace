@@ -1,7 +1,7 @@
 // Tests for the ToolStore interface
 import {describe, it, expect} from 'vitest'
 
-import * as Parser from '@tracespace/parser'
+import * as Parser from '@hpcreery/tracespace-parser'
 
 import {SIMPLE_TOOL, MACRO_TOOL, createToolStore} from '../tool-store'
 

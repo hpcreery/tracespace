@@ -1,20 +1,20 @@
-# @tracespace/renderer
+# @hpcreery/tracespace-renderer
 
 [![npm][npm badge]][npm package]
 
-Render [@tracespace/plotter][] image trees as SVGs. Part of the [tracespace][] collection of PCB visualization tools.
+Render [@hpcreery/tracespace-plotter][] image trees as SVGs. Part of the [tracespace][] collection of PCB visualization tools.
 
 This module is one part of the tracespace render pipeline, and you may not need to use it directly. See [@tracespace/core][] to integrate the full render pipeline into your project.
 
 ```shell
-npm install @tracespace/renderer@next
+npm install @hpcreery/tracespace-renderer@next
 ```
 
 [tracespace]: https://github.com/tracespace/tracespace
-[@tracespace/plotter]: ../plotter
+[@hpcreery/tracespace-plotter]: ../plotter
 [@tracespace/core]: ../core
-[npm package]: https://www.npmjs.com/package/@tracespace/renderer/v/next
-[npm badge]: https://img.shields.io/npm/v/@tracespace/renderer/next?style=flat-square
+[npm package]: https://www.npmjs.com/package/@hpcreery/tracespace-renderer/v/next
+[npm badge]: https://img.shields.io/npm/v/@hpcreery/tracespace-renderer/next?style=flat-square
 
 ## usage
 
@@ -22,9 +22,9 @@ npm install @tracespace/renderer@next
 import fs from 'node:fs/promises'
 import {toHtml} from 'hast-util-to-html'
 
-import {parse} from '@tracespace/parser'
-import {plot} from '@tracespace/plotter'
-import {render} from '@tracespace/renderer'
+import {parse} from '@hpcreery/tracespace-parser'
+import {plot} from '@hpcreery/tracespace-plotter'
+import {render} from '@hpcreery/tracespace-renderer'
 
 const gerberContents = await fs.readFile('gerber.gbr', 'utf-8')
 const syntaxTree = parse(gerberContents)

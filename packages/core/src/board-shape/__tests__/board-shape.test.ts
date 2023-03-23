@@ -2,18 +2,18 @@ import {describe, beforeEach, afterEach, it, expect} from 'vitest'
 import {replaceEsm, reset} from 'testdouble-vitest'
 import * as td from 'testdouble'
 
-import type {ImageTree} from '@tracespace/plotter'
+import type {ImageTree} from '@hpcreery/tracespace-plotter'
 import type {Layer} from '../..'
 
 describe('board shape', () => {
-  let plotter: typeof import('@tracespace/plotter')
+  let plotter: typeof import('@hpcreery/tracespace-plotter')
   let layerSorter: typeof import('../../sort-layers')
   let segmentWalker: typeof import('../walk-paths')
   let gapFiller: typeof import('../fill-gaps')
   let subject: typeof import('..')
 
   beforeEach(async () => {
-    plotter = await replaceEsm('@tracespace/plotter')
+    plotter = await replaceEsm('@hpcreery/tracespace-plotter')
     layerSorter = await replaceEsm('../../sort-layers')
     segmentWalker = await replaceEsm('../walk-paths')
     gapFiller = await replaceEsm('../fill-gaps')

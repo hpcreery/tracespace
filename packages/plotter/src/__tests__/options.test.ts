@@ -1,6 +1,6 @@
 import {describe, beforeEach, it, expect} from 'vitest'
 
-import * as Parser from '@tracespace/parser'
+import * as Parser from '@hpcreery/tracespace-parser'
 import {getPlotOptions} from '../options'
 
 describe('ensure plot options', () => {

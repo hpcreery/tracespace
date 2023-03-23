@@ -1,10 +1,10 @@
-// Tests for @tracespace/parser
+// Tests for @hpcreery/tracespace-parser
 
 import {describe, it, beforeEach, expect} from 'vitest'
 import type {Parser} from '..'
 import {ROOT, COMMENT, DONE, GERBER, createParser} from '..'
 
-describe('@tracespace/parser', () => {
+describe('@hpcreery/tracespace-parser', () => {
   let parser: Parser
 
   beforeEach(() => {

@@ -2,7 +2,7 @@ import {describe, beforeEach, afterEach, it, expect} from 'vitest'
 import {replaceEsm, reset} from 'testdouble-vitest'
 import * as td from 'testdouble'
 
-import * as Parser from '@tracespace/parser'
+import * as Parser from '@hpcreery/tracespace-parser'
 import * as Tree from '../tree'
 
 import type {PlotOptions} from '../options'

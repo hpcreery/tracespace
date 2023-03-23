@@ -5,7 +5,7 @@ import type {
   ImageRegion,
   PathSegment,
   Position,
-} from '@tracespace/plotter'
+} from '@hpcreery/tracespace-plotter'
 import type {PathWalk} from './walk-paths'
 
 import {reverseSegment} from './walk-paths'

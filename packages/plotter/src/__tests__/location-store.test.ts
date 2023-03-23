@@ -1,7 +1,7 @@
 // Tests for the LocationStore
 import {describe, it, beforeEach, expect} from 'vitest'
 
-import * as Parser from '@tracespace/parser'
+import * as Parser from '@hpcreery/tracespace-parser'
 
 import type {PlotOptions} from '../options'
 import type {LocationStore} from '../location-store'

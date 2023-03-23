@@ -2,7 +2,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 
 import {stringifySvg} from '@tracespace/core'
-import type {SvgElement} from '@tracespace/renderer'
+import type {SvgElement} from '@hpcreery/tracespace-renderer'
 
 export interface WriteRequest<ContentsType = unknown> {
   basename: string

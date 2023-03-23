@@ -4,7 +4,7 @@
     "access": "public"
   },
   "version": "5.0.0-alpha.4",
-  "description": "Render @tracespace/plotter image trees as SVGs.",
+  "description": "Render @hpcreery/tracespace-plotter image trees as SVGs.",
   "types": "./lib/index.d.ts",
   "exports": {
     "types": "./lib/index.d.ts",

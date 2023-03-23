@@ -28,34 +28,34 @@ See the [main branch][] for the current v4 release.
 | [![core version][]][core npm]                       | [@tracespace/core][]            | Use Gerber/drill files to create an SVG render of a finished PCB in Node.js or the browser. |
 | [![fixtures version][]][fixtures npm]               | [@tracespace/fixtures][]        | Sample Gerber/drill files for use as test fixtures.                                         |
 | [![identify-layers version][]][identify-layers npm] | [@tracespace/identify-layers][] | Try to guess Gerber files' layer types based on filenames.                                  |
-| [![parser version][]][parser npm]                   | [@tracespace/parser][]          | Parse Gerber/drill files into abstract syntax trees.                                        |
-| [![plotter version][]][plotter npm]                 | [@tracespace/plotter][]         | Plot @tracespace/parser ASTs into image trees.                                              |
-| [![renderer version][]][renderer npm]               | [@tracespace/renderer][]        | Render @tracespace/plotter image trees as SVGs                                              |
+| [![parser version][]][parser npm]                   | [@hpcreery/tracespace-parser][]          | Parse Gerber/drill files into abstract syntax trees.                                        |
+| [![plotter version][]][plotter npm]                 | [@hpcreery/tracespace-plotter][]         | Plot @hpcreery/tracespace-parser ASTs into image trees.                                              |
+| [![renderer version][]][renderer npm]               | [@hpcreery/tracespace-renderer][]        | Render @hpcreery/tracespace-plotter image trees as SVGs                                              |
 | [![xml-id version][]][xml-id npm]                   | [@tracespace/xml-id][]          | XML element ID generation and sanitation utilities.                                         |
 
 [@tracespace/cli]: ./packages/cli
 [@tracespace/core]: ./packages/parser
 [@tracespace/fixtures]: ./packages/fixtures
 [@tracespace/identify-layers]: ./packages/identify-layers
-[@tracespace/parser]: ./packages/parser
-[@tracespace/plotter]: ./packages/plotter
-[@tracespace/renderer]: ./packages/renderer
+[@hpcreery/tracespace-parser]: ./packages/parser
+[@hpcreery/tracespace-plotter]: ./packages/plotter
+[@hpcreery/tracespace-renderer]: ./packages/renderer
 [@tracespace/xml-id]: ./packages/xml-id
 [cli npm]: https://www.npmjs.com/package/@tracespace/cli/v/next
 [core npm]: https://www.npmjs.com/package/@tracespace/core/v/next
 [fixtures npm]: https://www.npmjs.com/package/@tracespace/fixtures/v/next
 [identify-layers npm]: https://www.npmjs.com/package/@tracespace/identify-layers/v/next
-[parser npm]: https://www.npmjs.com/package/@tracespace/parser/v/next
-[plotter npm]: https://www.npmjs.com/package/@tracespace/plotter/v/next
-[renderer npm]: https://www.npmjs.com/package/@tracespace/renderer/v/next
+[parser npm]: https://www.npmjs.com/package/@hpcreery/tracespace-parser/v/next
+[plotter npm]: https://www.npmjs.com/package/@hpcreery/tracespace-plotter/v/next
+[renderer npm]: https://www.npmjs.com/package/@hpcreery/tracespace-renderer/v/next
 [xml-id npm]: https://www.npmjs.com/package/@tracespace/xml-id/v/next
 [cli version]: https://img.shields.io/npm/v/@tracespace/cli/next?style=flat-square
 [core version]: https://img.shields.io/npm/v/@tracespace/core/next?style=flat-square
 [fixtures version]: https://img.shields.io/npm/v/@tracespace/fixtures/next?style=flat-square
 [identify-layers version]: https://img.shields.io/npm/v/@tracespace/identify-layers/next?style=flat-square
-[parser version]: https://img.shields.io/npm/v/@tracespace/parser/next?style=flat-square
-[plotter version]: https://img.shields.io/npm/v/@tracespace/plotter/next?style=flat-square
-[renderer version]: https://img.shields.io/npm/v/@tracespace/renderer/next?style=flat-square
+[parser version]: https://img.shields.io/npm/v/@hpcreery/tracespace-parser/next?style=flat-square
+[plotter version]: https://img.shields.io/npm/v/@hpcreery/tracespace-plotter/next?style=flat-square
+[renderer version]: https://img.shields.io/npm/v/@hpcreery/tracespace-renderer/next?style=flat-square
 [xml-id version]: https://img.shields.io/npm/v/@tracespace/xml-id/next?style=flat-square
 
 ## Roadmap
@@ -63,11 +63,11 @@ See the [main branch][] for the current v4 release.
 [I][] work on tracespace in my free time, so this roadmap should be taken with several grains of salt. While the new version is in development, pre-production versions of libraries will be periodically released under the `next` tag in npm.
 
 - [x] New build tools based on [vite][] and [TypeScript][]
-- [x] Create [@tracespace/parser][] package to generate [unist][] abstract syntax trees
+- [x] Create [@hpcreery/tracespace-parser][] package to generate [unist][] abstract syntax trees
   - Replaces gerber-parser from tracespace v4
-- [x] Create [@tracespace/plotter][] package convert ASTs to image trees
+- [x] Create [@hpcreery/tracespace-plotter][] package convert ASTs to image trees
   - Replaces gerber-plotter from tracespace v4
-- [x] Create [@tracespace/renderer][] package convert image trees to [hast][] SVG trees
+- [x] Create [@hpcreery/tracespace-renderer][] package convert image trees to [hast][] SVG trees
   - Replaces gerber-to-svg from tracespace v4
 - [x] Rename whats-that-gerber to [@tracespace/identify-layers][]
 - [x] Create [@tracespace/core][] package to hold the core render pipeline

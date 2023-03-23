@@ -3,8 +3,8 @@ import path from 'node:path'
 import {describe, it, beforeEach, expect} from 'vitest'
 import {temporaryDirectory} from 'tempy'
 
-import {ROOT, GERBER, DRILL} from '@tracespace/parser'
-import {IMAGE} from '@tracespace/plotter'
+import {ROOT, GERBER, DRILL} from '@hpcreery/tracespace-parser'
+import {IMAGE} from '@hpcreery/tracespace-plotter'
 
 import * as subject from '..'
 

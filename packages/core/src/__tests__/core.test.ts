@@ -10,18 +10,18 @@ import {
   SIDE_TOP,
 } from '@tracespace/identify-layers'
 
-import type {GerberTree} from '@tracespace/parser'
-import type {ImageTree} from '@tracespace/plotter'
-import type {SvgElement} from '@tracespace/renderer'
+import type {GerberTree} from '@hpcreery/tracespace-parser'
+import type {ImageTree} from '@hpcreery/tracespace-plotter'
+import type {SvgElement} from '@hpcreery/tracespace-renderer'
 import type {LayerIdentity} from '@tracespace/identify-layers'
 
 import type {ReadResult, PlotResult} from '..'
 import type {BoardShape, BoardShapeRender} from '../board-shape'
 
 describe('tracespace core', () => {
-  let parser: typeof import('@tracespace/parser')
-  let plotter: typeof import('@tracespace/plotter')
-  let renderer: typeof import('@tracespace/renderer')
+  let parser: typeof import('@hpcreery/tracespace-parser')
+  let plotter: typeof import('@hpcreery/tracespace-plotter')
+  let renderer: typeof import('@hpcreery/tracespace-renderer')
   let xmlId: typeof import('@tracespace/xml-id')
   let fileReader: typeof import('../read-file')
   let layerTypeDeterminer: typeof import('../determine-layer-types')
@@ -31,9 +31,9 @@ describe('tracespace core', () => {
   let subject: typeof import('..')
 
   beforeEach(async () => {
-    parser = await replaceEsm('@tracespace/parser')
-    plotter = await replaceEsm('@tracespace/plotter')
-    renderer = await replaceEsm('@tracespace/renderer')
+    parser = await replaceEsm('@hpcreery/tracespace-parser')
+    plotter = await replaceEsm('@hpcreery/tracespace-plotter')
+    renderer = await replaceEsm('@hpcreery/tracespace-renderer')
     xmlId = await replaceEsm('@tracespace/xml-id')
     fileReader = await replaceEsm('../read-file')
     layerTypeDeterminer = await replaceEsm('../determine-layer-types')

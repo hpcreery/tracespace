@@ -29,7 +29,7 @@ export interface Parser {
  *
  * @example
  * ```ts
- * import {createParser} from '@tracespace/parser'
+ * import {createParser} from '@hpcreery/tracespace-parser'
  *
  * // create a parser to parse a single file
  * const parser = createParser()

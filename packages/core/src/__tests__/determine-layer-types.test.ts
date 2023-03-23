@@ -2,7 +2,7 @@ import {describe, beforeEach, afterEach, it, expect} from 'vitest'
 import {replaceEsm, reset} from 'testdouble-vitest'
 import * as td from 'testdouble'
 
-import {ROOT, DRILL, GERBER} from '@tracespace/parser'
+import {ROOT, DRILL, GERBER} from '@hpcreery/tracespace-parser'
 
 describe('determine layer type', () => {
   let layerIdentifier: typeof import('@tracespace/identify-layers')
