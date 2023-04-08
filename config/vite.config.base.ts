@@ -65,7 +65,7 @@ export function defineLibraryConfig(
         output: {
           globals: Object.fromEntries(
             Object.keys(dependencies)
-              .filter(name => name.startsWith('@tracespace/'))
+              .filter(name => name.startsWith('@tracespace/') || name.startsWith('@hpcreery/'))
               .map(name => [name, pascalCase(name)])
           ),
         },
