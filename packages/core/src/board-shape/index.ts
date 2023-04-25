@@ -1,4 +1,8 @@
-import {IMAGE_PATH, IMAGE_REGION, BoundingBox} from '@hpcreery/tracespace-plotter'
+import {
+  IMAGE_PATH,
+  IMAGE_REGION,
+  BoundingBox,
+} from '@hpcreery/tracespace-plotter'
 import {renderGraphic, sizeToViewBox} from '@hpcreery/tracespace-renderer'
 
 import type {

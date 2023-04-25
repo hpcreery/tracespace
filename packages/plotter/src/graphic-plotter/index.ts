@@ -88,7 +88,7 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
   ): Tree.ImageGraphic[] {
     const graphics: Tree.ImageGraphic[] = []
 
-    let nextGraphicType: GraphicType | undefined = undefined
+    let nextGraphicType: GraphicType | undefined
     if (node.type !== GRAPHIC) {
       nextGraphicType = undefined
     } else if (node.graphic !== undefined) {
@@ -162,12 +162,18 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
     }
 
     if (node.type === GRAPHIC) {
-      if (node.graphic === SEGMENT) {
-        this._defaultGraphic = SEGMENT
-      } else if (node.graphic === MOVE) {
-        this._defaultGraphic = MOVE
-      } else if (node.graphic === SHAPE) {
-        this._defaultGraphic = SHAPE
+      switch (node.graphic) {
+        case SEGMENT:
+          this._defaultGraphic = SEGMENT
+          break
+        case MOVE:
+          this._defaultGraphic = MOVE
+          break
+        case SHAPE:
+          this._defaultGraphic = SHAPE
+          break
+        default:
+          break
       }
     }
   },

@@ -22,16 +22,16 @@ See the [main branch][] for the current v4 release.
 
 ## Packages
 
-| package                                             |                                 | description                                                                                 |
-| --------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------- |
-| [![cli version][]][cli npm]                         | [@tracespace/cli][]             | Use Gerber/drill files to create an SVG render of a finished PCB from the command line.     |
-| [![core version][]][core npm]                       | [@tracespace/core][]            | Use Gerber/drill files to create an SVG render of a finished PCB in Node.js or the browser. |
-| [![fixtures version][]][fixtures npm]               | [@tracespace/fixtures][]        | Sample Gerber/drill files for use as test fixtures.                                         |
-| [![identify-layers version][]][identify-layers npm] | [@tracespace/identify-layers][] | Try to guess Gerber files' layer types based on filenames.                                  |
-| [![parser version][]][parser npm]                   | [@hpcreery/tracespace-parser][]          | Parse Gerber/drill files into abstract syntax trees.                                        |
-| [![plotter version][]][plotter npm]                 | [@hpcreery/tracespace-plotter][]         | Plot @hpcreery/tracespace-parser ASTs into image trees.                                              |
-| [![renderer version][]][renderer npm]               | [@hpcreery/tracespace-renderer][]        | Render @hpcreery/tracespace-plotter image trees as SVGs                                              |
-| [![xml-id version][]][xml-id npm]                   | [@tracespace/xml-id][]          | XML element ID generation and sanitation utilities.                                         |
+| package                                             |                                   | description                                                                                 |
+| --------------------------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------- |
+| [![cli version][]][cli npm]                         | [@tracespace/cli][]               | Use Gerber/drill files to create an SVG render of a finished PCB from the command line.     |
+| [![core version][]][core npm]                       | [@tracespace/core][]              | Use Gerber/drill files to create an SVG render of a finished PCB in Node.js or the browser. |
+| [![fixtures version][]][fixtures npm]               | [@tracespace/fixtures][]          | Sample Gerber/drill files for use as test fixtures.                                         |
+| [![identify-layers version][]][identify-layers npm] | [@tracespace/identify-layers][]   | Try to guess Gerber files' layer types based on filenames.                                  |
+| [![parser version][]][parser npm]                   | [@hpcreery/tracespace-parser][]   | Parse Gerber/drill files into abstract syntax trees.                                        |
+| [![plotter version][]][plotter npm]                 | [@hpcreery/tracespace-plotter][]  | Plot @hpcreery/tracespace-parser ASTs into image trees.                                     |
+| [![renderer version][]][renderer npm]               | [@hpcreery/tracespace-renderer][] | Render @hpcreery/tracespace-plotter image trees as SVGs                                     |
+| [![xml-id version][]][xml-id npm]                   | [@tracespace/xml-id][]            | XML element ID generation and sanitation utilities.                                         |
 
 [@tracespace/cli]: ./packages/cli
 [@tracespace/core]: ./packages/parser
