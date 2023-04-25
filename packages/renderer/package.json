@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.0.0-alpha.11",
+  "version": "5.0.0-alpha.12",
   "description": "Render @hpcreery/tracespace-plotter image trees as SVGs.",
   "types": "./lib/index.d.ts",
   "exports": {
