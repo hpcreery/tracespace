@@ -1,6 +1,7 @@
 import type {Node, Parent} from 'unist'
 
 import type {UnitsType, Polarity} from '@hpcreery/tracespace-parser'
+import { Tool } from './tool-store'
 
 export type {Polarity} from '@hpcreery/tracespace-parser'
 
@@ -71,7 +72,7 @@ export type ErasableShape = SimpleShape & {erase?: boolean}
 
 export type ImageGraphicBase = ImageShape | ImagePath | ImageRegion
 
-export type ImageGraphic = ImageGraphicBase & {polarity: Polarity}
+export type ImageGraphic = ImageGraphicBase & {polarity: Polarity, tool: Tool | undefined}
 
 export interface ImageTree extends Parent {
   type: typeof IMAGE
