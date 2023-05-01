@@ -31,8 +31,14 @@ import type {Location} from '../location-store'
 
 import {plotShape} from './plot-shape'
 import {plotMacro} from './plot-macro'
-import {ArcDirection, plotLine} from './plot-path'
-import {CCW, CW, plotSegment, plotContour} from './plot-path'
+import {
+  ArcDirection,
+  plotLine,
+  CCW,
+  CW,
+  plotSegment,
+  plotContour,
+} from './plot-path'
 
 export interface GraphicPlotter {
   plot: (
@@ -123,7 +129,7 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
       })
     }
 
-    if (nextGraphicType === SEGMENT && this._regionMode === true) {
+    if (nextGraphicType === SEGMENT && this._regionMode) {
       this._currentPath = this._currentPath ?? {
         segments: [],
         region: this._regionMode,
@@ -135,7 +141,7 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
       )
     }
 
-    if (nextGraphicType === SEGMENT && this._regionMode === false) {
+    if (nextGraphicType === SEGMENT && !this._regionMode) {
       const pathGraphic = plotLine(
         plotSegment(location, this._arcDirection, this._ambiguousArcCenter),
         tool
@@ -176,17 +182,21 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
 
     if (node.type === GRAPHIC) {
       switch (node.graphic) {
-        case SEGMENT:
+        case SEGMENT: {
           this._defaultGraphic = SEGMENT
           break
-        case MOVE:
+        }
+        case MOVE: {
           this._defaultGraphic = MOVE
           break
-        case SHAPE:
+        }
+        case SHAPE: {
           this._defaultGraphic = SHAPE
           break
-        default:
+        }
+        default: {
           break
+        }
       }
     }
   },
