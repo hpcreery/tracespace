@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.0.0-alpha.18",
+  "version": "5.0.0-alpha.19",
   "description": "Parse Gerber/drill files into abstract syntax trees.",
   "types": "./lib/index.d.ts",
   "exports": {

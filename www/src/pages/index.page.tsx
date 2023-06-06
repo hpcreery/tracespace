@@ -19,8 +19,9 @@ const SECTION_NAMES = [
   'regions',
   'macro-primitives',
   'macros',
-  'step-repeats',
   'drill',
+  'step-repeats',
+  'drill-step-repeats',
   'layers',
 ]
 
