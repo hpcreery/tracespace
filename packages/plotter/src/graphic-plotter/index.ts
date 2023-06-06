@@ -40,6 +40,14 @@ import {
   plotContour,
 } from './plot-path'
 
+export {
+  plotLine,
+  plotSegment,
+  plotContour,
+  plotShape,
+  plotMacro,
+}
+
 export interface GraphicPlotter {
   plot: (
     node: GerberNode,
