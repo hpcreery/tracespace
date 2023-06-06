@@ -11,7 +11,12 @@ import {IMAGE, ImageGraphic} from './tree'
 import type {ImageTree} from './tree'
 
 export * from './tree'
+export * from './tool-store'
 export * from './graphic-plotter'
+export * from './graphic-plotter/plot-path'
+export * from './graphic-plotter/plot-shape'
+export * from './graphic-plotter/plot-macro'
+export * from './graphic-plotter/plot-rect-path'
 export * as BoundingBox from './bounding-box'
 export {TWO_PI, positionsEqual} from './coordinate-math'
 

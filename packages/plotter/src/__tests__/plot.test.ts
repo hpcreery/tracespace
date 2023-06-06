@@ -92,12 +92,14 @@ describe('creating a plot tree', () => {
       shape: {type: Tree.CIRCLE, cx: 1, cy: 2, r: 3},
       polarity: Parser.DARK,
       dcode: '1',
+      location: [1, 2],
     }
     const shape2: Tree.ImageGraphic = {
       type: Tree.IMAGE_SHAPE,
       shape: {type: Tree.CIRCLE, cx: 4, cy: 5, r: 6},
       polarity: Parser.CLEAR,
       dcode: '2',
+      location: [4, 5],
     }
     td.when(graphicPlotter.plot(node1, tool1, location1)).thenReturn([shape1])
     td.when(graphicPlotter.plot(node2, tool2, location2)).thenReturn([shape2])

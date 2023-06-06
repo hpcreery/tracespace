@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.0.0-alpha.20",
+  "version": "5.0.0-alpha.21",
   "description": "Plot @hpcreery/tracespace-parser ASTs into image trees.",
   "types": "./lib/index.d.ts",
   "exports": {

@@ -51,6 +51,7 @@ describe('bounding box calculations', () => {
     const result = subject.fromGraphic({
       type: Tree.IMAGE_SHAPE,
       shape: {type: Tree.CIRCLE, cx: 1, cy: 2, r: 3},
+      location: [1, 2],
     })
 
     expect(result).to.eql([-2, -1, 4, 5])
@@ -60,6 +61,7 @@ describe('bounding box calculations', () => {
     const result = subject.fromGraphic({
       type: Tree.IMAGE_SHAPE,
       shape: {type: Tree.RECTANGLE, x: 1, y: 2, xSize: 3, ySize: 4},
+      location: [1, 2],
     })
 
     expect(result).to.eql([1, 2, 4, 6])
@@ -77,6 +79,7 @@ describe('bounding box calculations', () => {
           [0, 0],
         ],
       },
+      location: [1, 2],
     })
 
     expect(result).to.eql([0, 0, 0.5, 0.5])
@@ -89,6 +92,7 @@ describe('bounding box calculations', () => {
         type: Tree.POLYGON,
         points: [],
       },
+      location: [1, 2],
     })
 
     expect(result).to.eql([])
@@ -104,6 +108,7 @@ describe('bounding box calculations', () => {
           {type: Tree.LINE, start: [1, 2], end: [3, 4]},
         ],
       },
+      location: [1, 2],
     })
 
     expect(result).to.eql([1, 2, 9, 8])
@@ -116,6 +121,7 @@ describe('bounding box calculations', () => {
         type: Tree.OUTLINE,
         segments: [],
       },
+      location: [1, 2],
     })
 
     expect(result).to.eql([])
@@ -131,6 +137,7 @@ describe('bounding box calculations', () => {
           {type: Tree.CIRCLE, cx: 1, cy: 2, r: 3},
         ],
       },
+      location: [1, 2],
     })
 
     expect(result).to.eql([-2, -1, 4, 6])
@@ -146,6 +153,7 @@ describe('bounding box calculations', () => {
           {type: Tree.CIRCLE, cx: 1, cy: 2, r: 3, erase: true},
         ],
       },
+      location: [1, 2],
     })
 
     expect(result).to.eql([1, 2, 4, 6])
@@ -158,6 +166,7 @@ describe('bounding box calculations', () => {
         type: Tree.LAYERED_SHAPE,
         shapes: [],
       },
+      location: [1, 2],
     })
 
     expect(result).to.eql([])
@@ -324,6 +333,7 @@ describe('bounding box calculations', () => {
             },
           ],
         },
+        location: [0, 0],
       })
 
       expect(result).to.eql([0, 1, 2, 3])
