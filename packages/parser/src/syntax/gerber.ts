@@ -1,11 +1,19 @@
 // Gerber file syntax
 import * as Lexer from '../lexer'
 import * as Constants from '../constants'
-import type * as Types from '../types'
+import * as Types from '../types'
 import * as Tree from '../tree'
 import {parseMacroBlocks} from './macro'
 import type {SyntaxRule} from './rules'
-import {token, notToken, one, zeroOrMore, zeroOrOne, minToMax} from './rules'
+import {
+  token,
+  notToken,
+  one,
+  zeroOrMore,
+  zeroOrOne,
+  minToMax,
+  oneOrMore,
+} from './rules'
 
 import {
   tokensToCoordinates,
@@ -384,7 +392,11 @@ const stepRepeat: SyntaxRule = {
       {
         type: Tree.STEP_REPEAT,
         position: tokensToPosition(tokens.slice(1, -1)),
-        stepRepeat: parameters,
+        pattern: parameters,
+        indication:
+          Object.keys(parameters).length != 0
+            ? Constants.PATTERN_START
+            : Constants.STEP_REPEAT_END,
       },
     ]
   },

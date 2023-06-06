@@ -432,7 +432,9 @@ export interface StepRepeat extends BaseNode {
   /** Node type */
   type: typeof STEP_REPEAT
   /** Step repeat parameters */
-  stepRepeat: Types.StepRepeatParameters
+  pattern: Types.StepRepeatParameters
+  /** Beginning or end of pattern */
+  indication: Types.StepRepeatIndication
 }
 
 /**

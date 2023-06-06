@@ -6,6 +6,6 @@ interface CustomMatchers<R = unknown> {
 
 declare global {
   namespace Vi {
-    interface AsymmetricMatchersContaining extends CustomMatchers {}
+    type AsymmetricMatchersContaining = CustomMatchers
   }
 }

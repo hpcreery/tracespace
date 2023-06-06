@@ -33,6 +33,10 @@ export const rules: Rules = {
     match: /D\d+/,
     value: getCodeValue,
   },
+  [Tokens.R_CODE]: {
+    match: /R\d+/,
+    value: getCodeValue,
+  },
   [Tokens.ASTERISK]: '*',
   [Tokens.PERCENT]: '%',
   [Tokens.EQUALS]: '=',

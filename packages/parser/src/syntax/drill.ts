@@ -2,7 +2,7 @@
 import * as Lexer from '../lexer'
 import * as Tree from '../tree'
 import * as Constants from '../constants'
-import type * as Types from '../types'
+import * as Types from '../types'
 import type {SyntaxRule} from './rules'
 import {token, notToken, one, zeroOrOne, zeroOrMore, minToMax} from './rules'
 
@@ -200,6 +200,58 @@ const slot: SyntaxRule = {
   },
 }
 
+const stepRepeat: SyntaxRule = {
+  name: 'stepRepeat',
+  rules: [
+    zeroOrOne([token(Lexer.R_CODE, Lexer.NUMBER)]),
+    one([
+      token(Lexer.M_CODE, '25'),
+      token(Lexer.M_CODE, '1'),
+      token(Lexer.M_CODE, '2'),
+      token(Lexer.M_CODE, '8'),
+    ]),
+    minToMax(0, 8, [token(Lexer.COORD_CHAR), token(Lexer.NUMBER)]),
+    token(Lexer.NEWLINE),
+  ],
+  createNodes(tokens) {
+    const coordinates = tokensToCoordinates(tokens)
+    const parameters = Object.fromEntries(
+      Object.entries(coordinates).map(([axis, coordinateString]) => [
+        axis,
+        Number(coordinateString),
+      ])
+    )
+
+    const mCode = tokens.find(t => t.type === Lexer.M_CODE)?.value
+    let indication = Constants.PATTERN_START as Types.StepRepeatIndication
+    switch (mCode) {
+      case '1':
+        indication = Constants.PATTERN_END
+        break
+      case '2':
+        indication = Constants.PATTERN_REPEAT
+        break
+      case '8':
+        indication = Constants.STEP_REPEAT_END
+        break
+      case '25':
+        indication = Constants.PATTERN_START
+        break
+      default:
+        break
+    }
+
+    return [
+      {
+        type: Tree.STEP_REPEAT,
+        position: undefined,
+        pattern: parameters,
+        indication,
+      },
+    ]
+  },
+}
+
 const done: SyntaxRule = {
   name: 'done',
   rules: [
@@ -247,4 +299,5 @@ export const drillGrammar: SyntaxRule[] = [
   units,
   done,
   header,
+  stepRepeat,
 ].map(r => ({...r, filetype: Constants.DRILL}))

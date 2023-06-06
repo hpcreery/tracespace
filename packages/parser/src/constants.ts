@@ -50,3 +50,9 @@ export const MULTI = 'multi'
 // Load polarity
 export const DARK = 'dark'
 export const CLEAR = 'clear'
+
+// Step repeat
+export const PATTERN_START = 'patternStart'
+export const PATTERN_END = 'patternEnd'
+export const PATTERN_REPEAT = 'patternRepeat'
+export const STEP_REPEAT_END = 'stepRepeatEnd'

@@ -29,6 +29,13 @@ export const M_CODE = 'M_CODE'
 export const D_CODE = 'D_CODE'
 
 /**
+ * R-code token type
+ *
+ * @category Lexer
+ */
+export const R_CODE = 'R_CODE'
+
+/**
  * Asterisk token type
  *
  * @category Lexer
@@ -192,6 +199,7 @@ export type TokenType =
   | typeof G_CODE
   | typeof M_CODE
   | typeof D_CODE
+  | typeof R_CODE
   | typeof ASTERISK
   | typeof PERCENT
   | typeof EQUALS

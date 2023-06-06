@@ -157,6 +157,15 @@ export type Coordinates = Partial<Record<string, string>>
 export type StepRepeatParameters = Record<string, number>
 
 /**
+ * Start or end of a step repeat
+ */
+export type StepRepeatIndication =
+  | typeof Constants.PATTERN_START
+  | typeof Constants.PATTERN_END
+  | typeof Constants.PATTERN_REPEAT
+  | typeof Constants.STEP_REPEAT_END
+
+/**
  * Valid graphical operation types
  */
 export type GraphicType =

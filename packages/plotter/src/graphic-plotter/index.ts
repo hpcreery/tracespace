@@ -22,6 +22,12 @@ import {
   INTERPOLATE_MODE,
   QUADRANT_MODE,
   REGION_MODE,
+  // STEP_REPEAT,
+  // PATTERN_START,
+  // PATTERN_END,
+  // PATTERN_REPEAT,
+  // STEP_REPEAT_END,
+  StepRepeatParameters,
 } from '@hpcreery/tracespace-parser'
 
 import * as Tree from '../tree'
@@ -48,6 +54,18 @@ export interface GraphicPlotter {
   ) => Tree.ImageGraphic[]
 }
 
+interface CurrentPath {
+  segments: Tree.PathSegment[]
+  tool: Tool | undefined
+  region: boolean
+}
+
+interface StepRepeat {
+  stepRepeat: StepRepeatParameters
+  nodes: GerberNode[]
+  id: number
+}
+
 export function createGraphicPlotter(filetype: Filetype): GraphicPlotter {
   const plotter = Object.create(GraphicPlotterPrototype)
 
@@ -63,6 +81,7 @@ interface GraphicPlotterImpl extends GraphicPlotter {
   _regionMode: boolean
   _defaultGraphic: GraphicType | undefined
   _polarity: typeof DARK | typeof CLEAR
+  _stepRepeatStore: StepRepeat[]
 
   _setGraphicState: (node: GerberNode) => void
 
@@ -71,12 +90,12 @@ interface GraphicPlotterImpl extends GraphicPlotter {
     nextTool: Tool | undefined,
     nextGraphicType: GraphicType | undefined
   ) => Tree.ImageGraphicBase | undefined
-}
 
-interface CurrentPath {
-  segments: Tree.PathSegment[]
-  tool: Tool | undefined
-  region: boolean
+  _plotStepRepeat: (
+    node: GerberNode,
+    tool: Tool | undefined,
+    location: Location
+  ) => Tree.ImageGraphic[]
 }
 
 const GraphicPlotterPrototype: GraphicPlotterImpl = {
@@ -86,6 +105,7 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
   _regionMode: false,
   _defaultGraphic: undefined,
   _polarity: DARK,
+  _stepRepeatStore: [],
 
   plot(
     node: GerberNode,
@@ -237,6 +257,69 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
       this._currentPath = undefined
       return pathGraphic
     }
+  },
+
+  _plotStepRepeat(
+    node: GerberNode,
+    tool: Tool | undefined,
+    location: Location
+  ): Tree.ImageGraphic[] {
+    let graphics: Tree.ImageGraphic[] = []
+    // if (node.type === STEP_REPEAT) {
+    //   // if (Object.keys(node.pattern).length != 0) {
+    //   //   const finishedSR = this._stepRepeatStore.pop()
+    //   //   // for (const node of finishedSR?.nodes ?? []) {
+    //   //   //   graphics.push(
+    //   //   //     ...this.plot(node, tool, {
+    //   //   //       startPoint: location.startPoint,
+    //   //   //       endPoint: location.endPoint,
+    //   //   //       arcOffsets: location.arcOffsets,
+    //   //   //     })
+    //   //   //   )
+    //   //   // }
+    //   // } else {
+    //   //   this._stepRepeatStore.push({
+    //   //     stepRepeat: node.pattern,
+    //   //     nodes: [],
+    //   //   })
+    //   // }
+    //   if (node.indication == PATTERN_START) {
+    //     // this._stepRepeatStore.push({
+    //     //   stepRepeat: node.pattern,
+    //     //   nodes: [],
+    //     // })
+    //   } else if (node.indication == PATTERN_END) {
+    //   } else if (node.indication == PATTERN_REPEAT) {
+    //     // const finishedSR = this._stepRepeatStore.pop()
+    //     // for (const node of finishedSR?.nodes ?? []) {
+    //     //   graphics.push(
+    //     //     ...this.plot(node, tool, {
+    //     //       startPoint: location.startPoint,
+    //     //       endPoint: location.endPoint,
+    //     //       arcOffsets: location.arcOffsets,
+    //     //     })
+    //     //   )
+    //     // }
+    //   } else if (node.indication == STEP_REPEAT_END) {
+    //     // const finishedSR = this._stepRepeatStore.pop()
+    //     // for (const node of finishedSR?.nodes ?? []) {
+    //     //   graphics.push(
+    //     //     ...this.plot(node, tool, {
+    //     //       startPoint: location.startPoint,
+    //     //       endPoint: location.endPoint,
+    //     //       arcOffsets: location.arcOffsets,
+    //     //     })
+    //     //   )
+    //     // }
+    //   }
+    // }
+
+    // if (this._stepRepeatStore.length > 0) {
+    //   this._stepRepeatStore[this._stepRepeatStore.length - 1].nodes.push(node)
+    // } else {
+    //   graphics.push(...this.plot(node, tool, location))
+    // }
+    return graphics
   },
 }
 
