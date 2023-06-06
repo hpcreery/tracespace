@@ -121,6 +121,7 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
         shape: plotShape(tool, location),
         polarity: this._polarity,
         dcode: tool.dcode,
+        location: [location.endPoint.x, location.endPoint.y],
       })
     }
 
@@ -130,6 +131,7 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
         shape: plotMacro(tool, location),
         polarity: this._polarity,
         dcode: tool.dcode,
+        location: [location.endPoint.x, location.endPoint.y],
       })
     }
 

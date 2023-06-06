@@ -88,6 +88,7 @@ export interface ImageTree extends Parent {
 export interface ImageShape extends Node {
   type: typeof IMAGE_SHAPE
   shape: Shape
+  location: Position
 }
 
 export interface ImagePath extends Node {
