@@ -6,6 +6,7 @@ import * as Tree from '../../tree'
 import type {Tool} from '../../tool-store'
 import {MACRO_TOOL} from '../../tool-store'
 import type {Location} from '../../location-store'
+import type {ApertureTransform} from '../../aperture-transform-store'
 
 import type {GraphicPlotter} from '..'
 import {createGraphicPlotter} from '..'
@@ -37,8 +38,9 @@ describe('plot shape macros', () => {
         },
       ],
     }
+    const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-    const results = subject.plot(node, tool, location)
+    const results = subject.plot(node, tool, location, transform)
 
     expect(results).to.eql([
       {

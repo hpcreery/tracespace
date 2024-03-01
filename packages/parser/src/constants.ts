@@ -52,7 +52,7 @@ export const DARK = 'dark'
 export const CLEAR = 'clear'
 
 // Load mirroring
-export const NONE = 'none'
+export const NO_MIRROR = 'noMirror'
 export const X = 'x'
 export const Y = 'y'
 export const XY = 'xy'

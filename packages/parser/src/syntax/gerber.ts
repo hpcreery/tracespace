@@ -376,7 +376,7 @@ const loadMirroring: SyntaxRule = {
       position: tokensToPosition(tokens.slice(1, -1)),
       mirroring:
         tokens[1].value === 'N'
-          ? Constants.NONE
+          ? Constants.NO_MIRROR
           : tokens[1].value === 'X'
           ? Constants.X
           : tokens[1].value === 'Y'

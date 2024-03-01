@@ -1,6 +1,6 @@
 import type {Node, Parent} from 'unist'
 
-import type {UnitsType, Polarity, NONE, X, XY, Y} from '@hpcreery/tracespace-parser'
+import type {UnitsType, Polarity, NO_MIRROR, X, XY, Y} from '@hpcreery/tracespace-parser'
 import {Tool} from './tool-store'
 
 export type {Polarity} from '@hpcreery/tracespace-parser'
@@ -74,7 +74,7 @@ export type ImageGraphicBase = ImageShape | ImagePath | ImageRegion
 
 export type ImageGraphic = ImageGraphicBase & {
   polarity: Polarity
-  mirror: typeof NONE | typeof X | typeof Y | typeof XY
+  mirror: typeof NO_MIRROR | typeof X | typeof Y | typeof XY
   rotation: number
   scale: number
   dcode: string | undefined

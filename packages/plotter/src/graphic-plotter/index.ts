@@ -63,10 +63,6 @@ interface GraphicPlotterImpl extends GraphicPlotter {
   _ambiguousArcCenter: boolean
   _regionMode: boolean
   _defaultGraphic: GraphicType | undefined
-  // _polarity: typeof DARK | typeof CLEAR
-  // _mirror: typeof X | typeof Y | typeof XY | typeof NONE
-  // _rotation: number
-  // _scale: number
 
 
   _setGraphicState: (node: GerberNode) => void
@@ -90,10 +86,6 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
   _ambiguousArcCenter: false,
   _regionMode: false,
   _defaultGraphic: undefined,
-  // _polarity: DARK,
-  // _mirror: NONE,
-  // _rotation: 0,
-  // _scale: 1,
 
   plot(
     node: GerberNode,

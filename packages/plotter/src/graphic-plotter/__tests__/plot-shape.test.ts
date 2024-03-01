@@ -7,6 +7,7 @@ import * as Tree from '../../tree'
 import type {Tool} from '../../tool-store'
 import {SIMPLE_TOOL} from '../../tool-store'
 import type {Location} from '../../location-store'
+import type {ApertureTransform} from '../../aperture-transform-store'
 import {HALF_PI, PI, THREE_HALF_PI, TWO_PI} from '../../coordinate-math'
 import type {GraphicPlotter} from '..'
 import {createGraphicPlotter} from '..'
@@ -28,8 +29,9 @@ describe('plot shape graphics', () => {
       hole: undefined,
     }
     const location = {endPoint: {x: 3, y: 4}} as Location
+    const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-    const results = subject.plot(node, tool, location)
+    const results = subject.plot(node, tool, location, transform)
 
     expect(results).to.eql([
       {
@@ -49,8 +51,9 @@ describe('plot shape graphics', () => {
       hole: undefined,
     }
     const location = {endPoint: {x: 2, y: -1}} as Location
+    const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-    const results = subject.plot(node, tool, location)
+    const results = subject.plot(node, tool, location, transform)
 
     expect(results).to.eql([
       {
@@ -70,8 +73,9 @@ describe('plot shape graphics', () => {
       hole: undefined,
     }
     const location = {endPoint: {x: 1, y: 2}} as Location
+    const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-    const results = subject.plot(node, tool, location)
+    const results = subject.plot(node, tool, location, transform)
 
     expect(results).to.eql([
       {
@@ -91,8 +95,9 @@ describe('plot shape graphics', () => {
       hole: undefined,
     }
     const location = {endPoint: {x: 1, y: 2}} as Location
+    const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-    const results = subject.plot(node, tool, location)
+    const results = subject.plot(node, tool, location, transform)
 
     expect(results).to.eql([
       {
@@ -117,8 +122,9 @@ describe('plot shape graphics', () => {
       hole: undefined,
     }
     const location = {endPoint: {x: 2, y: 2}} as Location
+    const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-    const results = subject.plot(node, tool, location)
+    const results = subject.plot(node, tool, location, transform)
 
     expect(results).toEqual([
       {
@@ -147,8 +153,9 @@ describe('plot shape graphics', () => {
         hole: {type: Parser.CIRCLE, diameter: 1},
       }
       const location = {endPoint: {x: 3, y: 4}} as Location
+      const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-      const results = subject.plot(node, tool, location)
+      const results = subject.plot(node, tool, location, transform)
 
       expect(results).to.eql([
         {
@@ -186,8 +193,9 @@ describe('plot shape graphics', () => {
         hole: {type: Parser.CIRCLE, diameter: 1},
       }
       const location = {endPoint: {x: 2, y: -1}} as Location
+      const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-      const results = subject.plot(node, tool, location)
+      const results = subject.plot(node, tool, location, transform)
 
       expect(results).to.eql([
         {
@@ -222,8 +230,9 @@ describe('plot shape graphics', () => {
         hole: {type: Parser.CIRCLE, diameter: 1},
       }
       const location = {endPoint: {x: 1, y: 2}} as Location
+      const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-      const results = subject.plot(node, tool, location)
+      const results = subject.plot(node, tool, location, transform)
 
       expect(results).to.eql([
         {
@@ -270,8 +279,9 @@ describe('plot shape graphics', () => {
         hole: {type: Parser.CIRCLE, diameter: 1},
       }
       const location = {endPoint: {x: 1, y: 2}} as Location
+      const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-      const results = subject.plot(node, tool, location)
+      const results = subject.plot(node, tool, location, transform)
 
       expect(results).to.eql([
         {
@@ -323,8 +333,9 @@ describe('plot shape graphics', () => {
         hole: {type: Parser.CIRCLE, diameter: 1},
       }
       const location = {endPoint: {x: 2, y: 2}} as Location
+      const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-      const results = subject.plot(node, tool, location)
+      const results = subject.plot(node, tool, location, transform)
 
       expect(results).toEqual([
         {
@@ -377,8 +388,9 @@ describe('plot shape graphics', () => {
         hole: {type: Parser.RECTANGLE, xSize: 1, ySize: 1},
       }
       const location = {endPoint: {x: 3, y: 4}} as Location
+      const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-      const results = subject.plot(node, tool, location) as Tree.ImageShape[]
+      const results = subject.plot(node, tool, location, transform) as Tree.ImageShape[]
       const resultShape = results[0].shape as Tree.OutlineShape
 
       expect(resultShape.segments.slice(-4)).to.eql([
@@ -413,8 +425,9 @@ describe('plot shape graphics', () => {
         hole: {type: Parser.RECTANGLE, xSize: 1, ySize: 1},
       }
       const location = {endPoint: {x: 2, y: -1}} as Location
+      const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-      const results = subject.plot(node, tool, location) as Tree.ImageShape[]
+      const results = subject.plot(node, tool, location, transform) as Tree.ImageShape[]
       const resultShape = results[0].shape as Tree.OutlineShape
 
       expect(resultShape.segments.slice(-4)).to.eql([
@@ -449,8 +462,9 @@ describe('plot shape graphics', () => {
         hole: {type: Parser.RECTANGLE, xSize: 1, ySize: 1},
       }
       const location = {endPoint: {x: 1, y: 2}} as Location
+      const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-      const results = subject.plot(node, tool, location) as Tree.ImageShape[]
+      const results = subject.plot(node, tool, location, transform) as Tree.ImageShape[]
       const resultShape = results[0].shape as Tree.OutlineShape
 
       expect(resultShape.segments.slice(-4)).to.eql([
@@ -485,8 +499,9 @@ describe('plot shape graphics', () => {
         hole: {type: Parser.RECTANGLE, xSize: 1, ySize: 1},
       }
       const location = {endPoint: {x: 1, y: 2}} as Location
+      const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-      const results = subject.plot(node, tool, location) as Tree.ImageShape[]
+      const results = subject.plot(node, tool, location, transform) as Tree.ImageShape[]
       const resultShape = results[0].shape as Tree.OutlineShape
 
       expect(resultShape.segments.slice(-4)).to.eql([
@@ -526,8 +541,9 @@ describe('plot shape graphics', () => {
         hole: {type: Parser.RECTANGLE, xSize: 1, ySize: 1},
       }
       const location = {endPoint: {x: 2, y: 2}} as Location
+      const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
 
-      const results = subject.plot(node, tool, location) as Tree.ImageShape[]
+      const results = subject.plot(node, tool, location, transform) as Tree.ImageShape[]
       const resultShape = results[0].shape as Tree.OutlineShape
 
       expect(resultShape.segments.slice(-4)).to.eql([

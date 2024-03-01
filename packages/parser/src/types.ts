@@ -188,7 +188,7 @@ export type Polarity = typeof Constants.DARK | typeof Constants.CLEAR
 /**
  * Valid image mirroring modes
  */
-export type Mirroring = typeof Constants.NONE | typeof Constants.X | typeof Constants.Y | typeof Constants.XY
+export type Mirroring = typeof Constants.NO_MIRROR | typeof Constants.X | typeof Constants.Y | typeof Constants.XY
 
 /**
  * Valid image scaling modes

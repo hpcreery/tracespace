@@ -18,6 +18,7 @@ import type {Layer} from '..'
 import {getOutlineLayer} from '../sort-layers'
 import {walkPaths} from './walk-paths'
 import {fillGaps} from './fill-gaps'
+import { Rotation, Scaling, Mirroring } from '@hpcreery/tracespace-parser'
 
 export const MISSING_OUTLINE_LAYER = 'missingOutlineLayer'
 export const NO_PATHS_IN_OUTLINE_LAYER = 'noPathsInOutlineLayer'
@@ -64,7 +65,7 @@ export function plotBoardShape(
 
   const inputSegments = outlinePlot.children
     .filter(
-      (node): node is ImagePath & {polarity: Polarity; dcode: string} =>
+      (node): node is ImagePath & {polarity: Polarity; dcode: string; mirror: Mirroring; scale: Scaling; rotation: Rotation} =>
         node.type === IMAGE_PATH
     )
     .flatMap(path => path.segments)

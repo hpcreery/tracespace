@@ -9,6 +9,7 @@ import type {PlotOptions} from '../options'
 import type {ToolStore, Tool} from '../tool-store'
 import type {LocationStore, Location} from '../location-store'
 import type {GraphicPlotter} from '../graphic-plotter'
+import type {ApertureTransform} from '../aperture-transform-store'
 
 describe('creating a plot tree', () => {
   const toolStore = td.object<ToolStore>()
@@ -91,6 +92,9 @@ describe('creating a plot tree', () => {
       type: Tree.IMAGE_SHAPE,
       shape: {type: Tree.CIRCLE, cx: 1, cy: 2, r: 3},
       polarity: Parser.DARK,
+      mirror: Parser.NO_MIRROR,
+      rotation: 0,
+      scale: 1,
       dcode: '1',
       location: [1, 2],
     }
@@ -98,11 +102,16 @@ describe('creating a plot tree', () => {
       type: Tree.IMAGE_SHAPE,
       shape: {type: Tree.CIRCLE, cx: 4, cy: 5, r: 6},
       polarity: Parser.CLEAR,
+      mirror: Parser.NO_MIRROR,
+      rotation: 0,
+      scale: 1,
       dcode: '2',
       location: [4, 5],
     }
-    td.when(graphicPlotter.plot(node1, tool1, location1)).thenReturn([shape1])
-    td.when(graphicPlotter.plot(node2, tool2, location2)).thenReturn([shape2])
+
+    const transform = {polarity: Parser.DARK, mirror: Parser.NO_MIRROR, rotation: 0, scale: 1} as ApertureTransform
+    td.when(graphicPlotter.plot(node1, tool1, location1, transform)).thenReturn([shape1])
+    td.when(graphicPlotter.plot(node2, tool2, location2, transform)).thenReturn([shape2])
     td.when(boundingBox.fromGraphics([shape1, shape2])).thenReturn([1, 2, 3, 4])
 
     const result = subject.plot(tree)

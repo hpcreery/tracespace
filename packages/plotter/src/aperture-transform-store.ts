@@ -1,5 +1,5 @@
 import type { Polarity, Mirroring, Rotation, Scaling, GerberNode} from '@hpcreery/tracespace-parser'
-import { LOAD_MIRRORING, LOAD_POLARITY, LOAD_ROTATION, LOAD_SCALING, DARK, NONE } from '@hpcreery/tracespace-parser'
+import { LOAD_MIRRORING, LOAD_POLARITY, LOAD_ROTATION, LOAD_SCALING, DARK, NO_MIRROR } from '@hpcreery/tracespace-parser'
 
 
 export interface ApertureTransform {
@@ -26,7 +26,7 @@ interface TransformStoreState {
 const TransformStorePrototype: TransformStore & TransformStoreState = {
   _currentTransform: {
     polarity: DARK,
-    mirror: NONE,
+    mirror: NO_MIRROR,
     rotation: 0,
     scale: 1
   },

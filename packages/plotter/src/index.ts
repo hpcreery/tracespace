@@ -13,6 +13,8 @@ import type {ImageTree} from './tree'
 
 export * from './tree'
 export * from './tool-store'
+export * from './location-store'
+export * from './aperture-transform-store'
 export * from './graphic-plotter'
 export * from './graphic-plotter/plot-path'
 export * from './graphic-plotter/plot-shape'
