@@ -99,11 +99,40 @@ export const GERBER_TOOL_DEF = 'GERBER_TOOL_DEF'
 export const GERBER_LOAD_POLARITY = 'GERBER_LOAD_POLARITY'
 
 /**
- * Gerber step repear token type
+ * Gerber load polarity token type
+ *
+ * @category Lexer
+ */
+export const GERBER_LOAD_MIRRORING = 'GERBER_LOAD_MIRRORING'
+
+/**
+ * Gerber load polarity token type
+ *
+ * @category Lexer
+ */
+export const GERBER_LOAD_ROTATION = 'GERBER_LOAD_ROTATION'
+
+/**
+ * Gerber load polarity token type
+ *
+ * @category Lexer
+ */
+export const GERBER_LOAD_SCALING = 'GERBER_LOAD_SCALING'
+
+/**
+ * Gerber step repeat token type
  *
  * @category Lexer
  */
 export const GERBER_STEP_REPEAT = 'GERBER_STEP_REPEAT'
+
+/**
+ * Gerber block aperture token type
+ *
+ * @category Lexer
+ */
+export const GERBER_BLOCK_APERTURE = 'GERBER_BLOCK_APERTURE'
+
 
 /**
  * Gerber macro variable token type
@@ -202,8 +231,12 @@ export type TokenType =
   | typeof GERBER_TOOL_MACRO
   | typeof GERBER_TOOL_DEF
   | typeof GERBER_LOAD_POLARITY
+  | typeof GERBER_LOAD_MIRRORING
+  | typeof GERBER_LOAD_ROTATION
+  | typeof GERBER_LOAD_SCALING
   | typeof GERBER_STEP_REPEAT
   | typeof GERBER_MACRO_VARIABLE
+  | typeof GERBER_BLOCK_APERTURE
   | typeof SEMICOLON
   | typeof DRILL_UNITS
   | typeof DRILL_ZERO_INCLUSION

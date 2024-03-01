@@ -362,6 +362,64 @@ const loadPolarity: SyntaxRule = {
   ],
 }
 
+const loadMirroring: SyntaxRule = {
+  name: 'loadMirroring',
+  rules: [
+    token(Lexer.PERCENT),
+    token(Lexer.GERBER_LOAD_MIRRORING),
+    token(Lexer.ASTERISK),
+    token(Lexer.PERCENT),
+  ],
+  createNodes: tokens => [
+    {
+      type: Tree.LOAD_MIRRORING,
+      position: tokensToPosition(tokens.slice(1, -1)),
+      mirroring:
+        tokens[1].value === 'N'
+          ? Constants.NONE
+          : tokens[1].value === 'X'
+          ? Constants.X
+          : tokens[1].value === 'Y'
+          ? Constants.Y
+          : Constants.XY,
+    },
+  ],
+}
+
+const loadRotation: SyntaxRule = {
+  name: 'loadRotation',
+  rules: [
+    token(Lexer.PERCENT),
+    token(Lexer.GERBER_LOAD_ROTATION),
+    token(Lexer.ASTERISK),
+    token(Lexer.PERCENT),
+  ],
+  createNodes: tokens => [
+    {
+      type: Tree.LOAD_ROTATION,
+      position: tokensToPosition(tokens.slice(1, -1)),
+      rotation: Number(tokens[1].value),
+    },
+  ],
+}
+
+const loadScaling: SyntaxRule = {
+  name: 'loadScaling',
+  rules: [
+    token(Lexer.PERCENT),
+    token(Lexer.GERBER_LOAD_SCALING),
+    token(Lexer.ASTERISK),
+    token(Lexer.PERCENT),
+  ],
+  createNodes: tokens => [
+    {
+      type: Tree.LOAD_SCALING,
+      position: tokensToPosition(tokens.slice(1, -1)),
+      scaling: Number(tokens[1].value),
+    },
+  ],
+}
+
 const stepRepeat: SyntaxRule = {
   name: 'stepRepeat',
   rules: [
@@ -373,21 +431,54 @@ const stepRepeat: SyntaxRule = {
   ],
   createNodes(tokens) {
     const coordinates = tokensToCoordinates(tokens)
+
+    if (Object.keys(coordinates).length === 0) {
+      return [
+        {
+          type: Tree.STEP_REPEAT_CLOSE,
+        },
+      ]
+    }
+
     const parameters = Object.fromEntries(
       Object.entries(coordinates).map(([axis, coordinateString]) => [
         axis,
-        Number(coordinateString),
+        (axis.toLowerCase() === 'i' || axis.toLowerCase() === 'j') ? Math.trunc(Number(coordinateString)) : (coordinateString ?? ""),
       ])
     )
 
     return [
       {
-        type: Tree.STEP_REPEAT,
+        type: Tree.STEP_REPEAT_OPEN,
         position: tokensToPosition(tokens.slice(1, -1)),
         stepRepeat: parameters,
       },
     ]
   },
+}
+
+const blockAperture: SyntaxRule = {
+  name: 'blockAperture',
+  rules: [
+    token(Lexer.PERCENT),
+    token(Lexer.GERBER_BLOCK_APERTURE),
+    zeroOrOne([token(Lexer.D_CODE)]),
+    token(Lexer.ASTERISK),
+    token(Lexer.PERCENT),
+  ],
+  createNodes: tokens =>
+    tokens[2].type === Lexer.D_CODE
+      ? [
+          {
+            type: Tree.BLOCK_APERTURE_OPEN,
+            code: tokens[2].value,
+          },
+        ]
+      : [
+          {
+            type: Tree.BLOCK_APERTURE_CLOSE,
+          },
+        ],
 }
 
 const unimplementedExtendedCommand: SyntaxRule = {
@@ -418,9 +509,15 @@ export const gerberGrammar: SyntaxRule[] = [
   regionMode,
   quadrantMode,
   loadPolarity,
+  loadMirroring,
+  loadRotation,
+  loadScaling,
   stepRepeat,
   format,
   units,
   done,
+  blockAperture,
   unimplementedExtendedCommand,
+  // blockApertureStart,
+  // blockApertureEnd,
 ].map(r => ({...r, filetype: Constants.GERBER}))

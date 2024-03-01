@@ -1,6 +1,7 @@
 import type {Position} from 'unist'
 
 import type * as Types from './types'
+// import type * as Constants from './constants'
 
 /**
  * {@linkcode Root} node type
@@ -73,11 +74,54 @@ export const TOOL_CHANGE = 'toolChange'
 export const LOAD_POLARITY = 'loadPolarity'
 
 /**
- * {@linkcode StepRepeat} node type
+ * {@linkcode LoadPolarity} node type
  *
  * @category Node
  */
-export const STEP_REPEAT = 'stepRepeat'
+export const LOAD_MIRRORING = 'loadMirroring'
+
+/**
+ * {@linkcode LoadPolarity} node type
+ *
+ * @category Node
+ */
+export const LOAD_ROTATION = 'loadRotation'
+
+/**
+ * {@linkcode LoadPolarity} node type
+ *
+ * @category Node
+ */
+export const LOAD_SCALING = 'loadScaling'
+
+/**
+ * {@linkcode StepRepeatOpen} node type
+ *
+ * @category Node
+ */
+export const STEP_REPEAT_OPEN = 'stepRepeatOpen'
+
+/**
+ * {@linkcode StepRepeatOpen} node type
+ *
+ * @category Node
+ */
+export const STEP_REPEAT_CLOSE = 'stepRepeatClose'
+
+
+/**
+ * {@linkcode BlockApertureOpen} node type
+ *
+ * @category Node
+ */
+export const BLOCK_APERTURE_OPEN = 'blockApertureOpen'
+
+/**
+ * {@linkcode BlockApertureOpen} node type
+ *
+ * @category Node
+ */
+export const BLOCK_APERTURE_CLOSE = 'blockApertureClose'
 
 /**
  * {@linkcode Graphic} node type
@@ -170,7 +214,13 @@ export type ChildNode =
   | RegionMode
   | QuadrantMode
   | LoadPolarity
-  | StepRepeat
+  | LoadMirroring
+  | LoadRotation
+  | LoadScaling
+  | StepRepeatOpen
+  | StepRepeatClose
+  | BlockApertureOpen
+  | BlockApertureClose
   | Graphic
   | Unimplemented
 
@@ -406,8 +456,8 @@ export interface ToolChange extends BaseNode {
 }
 
 /**
- * A `LoadPolarity` node sets the current polarity to {@linkcode DARK | dark}
- * or {@linkcode CLEAR | clear}. Subsequent {@linkcode Graphic} operations
+ * A `LoadPolarity` node sets the current polarity to {@linkcode Constants.DARK | dark}
+ * or {@linkcode Constants.CLEAR | clear}. Subsequent {@linkcode Graphic} operations
  * add to the overall image if the polarity is "dark", or remove from the image
  * if the polarity is "clear".
  *
@@ -421,6 +471,49 @@ export interface LoadPolarity extends BaseNode {
 }
 
 /**
+ * A `LoadMirroring` node sets the current mirroring to {@linkcode Constants.NONE | none},
+ * {@linkcode Constants.X | x}, {@linkcode Constants.Y | y}, or {@linkcode Constants.XY | xy}.
+ * The mirroring option defines the mirroring axis used when creating objects. The aperture is mirrored around its origin
+ * (which may not be its geometric center) before being used
+ *
+ * @category Node
+ */
+export interface LoadMirroring extends BaseNode {
+  /** Node type */
+  type: typeof LOAD_MIRRORING
+  /** Mirroring */
+  mirroring: Types.Mirroring
+}
+
+/**
+ * A `LoadRotation` node sets the current rotation to a number. Defines the rotation angle
+ * used when creating objects. The aperture is rotated around its origin (which may or may not
+ * be its geometric center)
+ *
+ * @category Node
+ */
+export interface LoadRotation extends BaseNode {
+  /** Node type */
+  type: typeof LOAD_ROTATION
+  /** Rotation */
+  rotation: number
+}
+
+/**
+ * A `LoadScaling` node sets the current sccaling factor to a number. Defines the scale factor
+ * used when creating objects. The aperture is scaled centered on its origin (which may or may not
+ * be its geometric center)
+ *
+ * @category Node
+ */
+export interface LoadScaling extends BaseNode {
+  /** Node type */
+  type: typeof LOAD_SCALING
+  /** Scaling */
+  scaling: number
+}
+
+/**
  * A `StepRepeat` node starts or ends a step repeat block.
  *
  * See the {@link https://www.ucamco.com/gerber | Gerber file specification}
@@ -428,12 +521,55 @@ export interface LoadPolarity extends BaseNode {
  *
  * @category Node
  */
-export interface StepRepeat extends BaseNode {
+export interface StepRepeatOpen extends BaseNode {
   /** Node type */
-  type: typeof STEP_REPEAT
+  type: typeof STEP_REPEAT_OPEN
   /** Step repeat parameters */
   stepRepeat: Types.StepRepeatParameters
 }
+
+/**
+ * A `StepRepeat` node starts or ends a step repeat block.
+ *
+ * See the {@link https://www.ucamco.com/gerber | Gerber file specification}
+ * for an in-depth description of step repeat blocks.
+ *
+ * @category Node
+ */
+export interface StepRepeatClose extends BaseNode {
+  /** Node type */
+  type: typeof STEP_REPEAT_CLOSE
+}
+
+
+/**
+ * A `Block Aperture` node starts or ends a block aperture.
+ *
+ * See the {@link https://www.ucamco.com/gerber | Gerber file specification}
+ * for an in-depth description of block apertures.
+ *
+ * @category Node
+ */
+export interface BlockApertureOpen extends BaseNode {
+  /** Node type */
+  type: typeof BLOCK_APERTURE_OPEN
+  /** Unique tool identifier */
+  code: string
+}
+
+/**
+ * A `Block Aperture` node starts or ends a block aperture.
+ *
+ * See the {@link https://www.ucamco.com/gerber | Gerber file specification}
+ * for an in-depth description of block apertures.
+ *
+ * @category Node
+ */
+export interface BlockApertureClose extends BaseNode {
+  /** Node type */
+  type: typeof BLOCK_APERTURE_CLOSE
+}
+
 
 /**
  * A `Graphic` node that represents an image being draw to the active layer.

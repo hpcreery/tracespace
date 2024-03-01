@@ -58,7 +58,20 @@ export const rules: Rules = {
     match: /LP[CD]/,
     value: (text: string): string => text.slice(2),
   },
+  [Tokens.GERBER_LOAD_MIRRORING]: {
+    match: /LM(?:XY|[NXY])/,
+    value: (text: string): string => text.slice(2),
+  },
+  [Tokens.GERBER_LOAD_ROTATION]: {
+    match: /LR[+-]?\d+(?:\.\d+)?/,
+    value: (text: string): string => text.slice(2),
+  },
+  [Tokens.GERBER_LOAD_SCALING]: {
+    match: /LS[+-]?\d+(?:\.\d+)?/,
+    value: (text: string): string => text.slice(2),
+  },
   [Tokens.GERBER_STEP_REPEAT]: 'SR',
+  [Tokens.GERBER_BLOCK_APERTURE]: 'AB',
   [Tokens.GERBER_MACRO_VARIABLE]: /\$\d+/,
   [Tokens.SEMICOLON]: ';',
   [Tokens.DRILL_UNITS]: /^(?:METRIC|INCH)/,

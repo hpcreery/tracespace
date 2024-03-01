@@ -154,7 +154,7 @@ export type Coordinates = Partial<Record<string, string>>
 /**
  * Parameters of a step repeat
  */
-export type StepRepeatParameters = Record<string, number>
+export type StepRepeatParameters = Record<string, number | string>
 
 /**
  * Valid graphical operation types
@@ -184,3 +184,18 @@ export type QuadrantModeType = typeof Constants.SINGLE | typeof Constants.MULTI
  * Valid image polarities
  */
 export type Polarity = typeof Constants.DARK | typeof Constants.CLEAR
+
+/**
+ * Valid image mirroring modes
+ */
+export type Mirroring = typeof Constants.NONE | typeof Constants.X | typeof Constants.Y | typeof Constants.XY
+
+/**
+ * Valid image scaling modes
+ */
+export type Scaling = number
+
+/**
+ * Valid image rotation modes
+ */
+export type Rotation = number

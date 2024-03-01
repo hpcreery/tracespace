@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // Graphic plotter
 // Takes nodes and turns them into graphics to be added to the image
 import {
@@ -5,9 +6,7 @@ import {
   GraphicType,
   Filetype,
   InterpolateModeType,
-  DARK,
   LOAD_POLARITY,
-  CLEAR,
   GRAPHIC,
   SHAPE,
   SEGMENT,
@@ -39,12 +38,14 @@ import {
   plotSegment,
   plotContour,
 } from './plot-path'
+import { ApertureTransform } from '../aperture-transform-store'
 
 export interface GraphicPlotter {
   plot: (
     node: GerberNode,
     tool: Tool | undefined,
-    location: Location
+    location: Location,
+    transform: ApertureTransform
   ) => Tree.ImageGraphic[]
 }
 
@@ -62,7 +63,11 @@ interface GraphicPlotterImpl extends GraphicPlotter {
   _ambiguousArcCenter: boolean
   _regionMode: boolean
   _defaultGraphic: GraphicType | undefined
-  _polarity: typeof DARK | typeof CLEAR
+  // _polarity: typeof DARK | typeof CLEAR
+  // _mirror: typeof X | typeof Y | typeof XY | typeof NONE
+  // _rotation: number
+  // _scale: number
+
 
   _setGraphicState: (node: GerberNode) => void
 
@@ -85,12 +90,16 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
   _ambiguousArcCenter: false,
   _regionMode: false,
   _defaultGraphic: undefined,
-  _polarity: DARK,
+  // _polarity: DARK,
+  // _mirror: NONE,
+  // _rotation: 0,
+  // _scale: 1,
 
   plot(
     node: GerberNode,
     tool: Tool | undefined,
-    location: Location
+    location: Location,
+    transform: ApertureTransform
   ): Tree.ImageGraphic[] {
     const graphics: Tree.ImageGraphic[] = []
 
@@ -108,7 +117,10 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
     if (pathGraphic !== undefined) {
       graphics.push({
         ...pathGraphic,
-        polarity: this._polarity,
+        polarity: transform.polarity,
+        mirror: transform.mirror,
+        rotation: transform.rotation,
+        scale: transform.scale,
         dcode: undefined,
       })
     }
@@ -119,7 +131,10 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
       graphics.push({
         type: Tree.IMAGE_SHAPE,
         shape: plotShape(tool, location),
-        polarity: this._polarity,
+        polarity: transform.polarity,
+        mirror: transform.mirror,
+        rotation: transform.rotation,
+        scale: transform.scale,
         dcode: tool.dcode,
         location: [location.endPoint.x, location.endPoint.y],
       })
@@ -129,7 +144,10 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
       graphics.push({
         type: Tree.IMAGE_SHAPE,
         shape: plotMacro(tool, location),
-        polarity: this._polarity,
+        polarity: transform.polarity,
+        mirror: transform.mirror,
+        rotation: transform.rotation,
+        scale: transform.scale,
         dcode: tool.dcode,
         location: [location.endPoint.x, location.endPoint.y],
       })
@@ -156,7 +174,10 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
       if (pathGraphic !== undefined) {
         graphics.push({
           ...pathGraphic,
-          polarity: this._polarity,
+          polarity: transform.polarity,
+          mirror: transform.mirror,
+          rotation: transform.rotation,
+          scale: transform.scale,
           dcode: tool?.dcode,
         })
       }
@@ -168,7 +189,10 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
       if (slotPathGraphic !== undefined) {
         graphics.push({
           ...slotPathGraphic,
-          polarity: this._polarity,
+          polarity: transform.polarity,
+          mirror: transform.mirror,
+          rotation: transform.rotation,
+          scale: transform.scale,
           dcode: tool?.dcode,
         })
       }
@@ -188,10 +212,6 @@ const GraphicPlotterPrototype: GraphicPlotterImpl = {
 
     if (node.type === REGION_MODE) {
       this._regionMode = node.region
-    }
-
-    if (node.type === LOAD_POLARITY) {
-      this._polarity = node.polarity
     }
 
     if (node.type === GRAPHIC) {
