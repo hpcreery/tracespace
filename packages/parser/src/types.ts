@@ -154,7 +154,12 @@ export type Coordinates = Partial<Record<string, string>>
 /**
  * Parameters of a step repeat
  */
-export type StepRepeatParameters = Record<string, number | string>
+export interface StepRepeatParameters {
+  x: string
+  y: string
+  i: string
+  j: string
+}
 
 /**
  * Valid graphical operation types

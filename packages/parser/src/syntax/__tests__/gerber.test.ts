@@ -472,9 +472,8 @@ const SPECS: Array<{
     ],
     expectedNodes: [
       {
-        type: Tree.STEP_REPEAT_OPEN,
+        type: Tree.STEP_REPEAT_CLOSE,
         position: pos([1, 2, 1], [1, 4, 3]),
-        stepRepeat: {},
       },
     ],
   },
@@ -499,7 +498,7 @@ const SPECS: Array<{
       {
         type: Tree.STEP_REPEAT_OPEN,
         position: pos([1, 2, 1], [1, 12, 11]),
-        stepRepeat: {x: 2, y: 3, i: 4, j: 5},
+        stepRepeat: {x: '2', y: '3', i: '4', j: '5'},
       },
     ],
   },

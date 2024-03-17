@@ -440,12 +440,12 @@ const stepRepeat: SyntaxRule = {
       ]
     }
 
-    const parameters = Object.fromEntries(
-      Object.entries(coordinates).map(([axis, coordinateString]) => [
-        axis,
-        (axis.toLowerCase() === 'i' || axis.toLowerCase() === 'j') ? Math.trunc(Number(coordinateString)) : (coordinateString ?? ""),
-      ])
-    )
+    const parameters = {
+      i: coordinates.i ?? '0',
+      j: coordinates.j ?? '0',
+      x: coordinates.x ?? '1',
+      y: coordinates.y ?? '1',
+    }
 
     return [
       {
