@@ -259,6 +259,102 @@ const createOperationNodes = (tokens: Lexer.Token[]): Tree.ChildNode[] => {
   return nodes
 }
 
+// const imagePolarityDeprecated: SyntaxRule = {
+//   name: 'imagePolarityDeprecated',
+//   rules: [
+//     zeroOrOne([token(Lexer.PERCENT)]),
+//     token(Lexer.DEPRECIATED_GERBER_IMAGE_POLARTIY),
+//     token(Lexer.ASTERISK),
+//     zeroOrOne([token(Lexer.PERCENT)]),
+//   ],
+//   createNodes: tokens => [
+//     {
+//       type: Tree.UNIMPLEMENTED,
+//       value: tokensToString(tokens),
+//     },
+//   ],
+// }
+
+// const imageRotationDeprecated: SyntaxRule = {
+//   name: 'imageRotationDeprecated',
+//   rules: [
+//     zeroOrOne([token(Lexer.PERCENT)]),
+//     token(Lexer.DEPRECIATED_GERBER_IMAGE_ROTATION),
+//     token(Lexer.ASTERISK),
+//     zeroOrOne([token(Lexer.PERCENT)]),
+//   ],
+//   createNodes: tokens => [
+//     {
+//       type: Tree.UNIMPLEMENTED,
+//       value: tokensToString(tokens),
+//     },
+//   ],
+// }
+
+// const imageAxesDeprecated: SyntaxRule = {
+//   name: 'imageAxesDeprecated',
+//   rules: [
+//     zeroOrOne([token(Lexer.PERCENT)]),
+//     token(Lexer.DEPRECIATED_GERBER_IMAGE_AXES),
+//     token(Lexer.ASTERISK),
+//     zeroOrOne([token(Lexer.PERCENT)]),
+//   ],
+//   createNodes: tokens => [
+//     {
+//       type: Tree.UNIMPLEMENTED,
+//       value: tokensToString(tokens),
+//     },
+//   ],
+// }
+
+// const imageMirroringDeprecated: SyntaxRule = {
+//   name: 'imageMirroringDeprecated',
+//   rules: [
+//     zeroOrOne([token(Lexer.PERCENT)]),
+//     token(Lexer.DEPRECIATED_GERBER_IMAGE_MIRRORING),
+//     token(Lexer.ASTERISK),
+//     zeroOrOne([token(Lexer.PERCENT)]),
+//   ],
+//   createNodes: tokens => [
+//     {
+//       type: Tree.UNIMPLEMENTED,
+//       value: tokensToString(tokens),
+//     },
+//   ],
+// }
+
+// const imageOffsetDeprecated: SyntaxRule = {
+//   name: 'imageOffsetDeprecated',
+//   rules: [
+//     zeroOrOne([token(Lexer.PERCENT)]),
+//     token(Lexer.DEPRECIATED_GERBER_IMAGE_OFFSET),
+//     token(Lexer.ASTERISK),
+//     zeroOrOne([token(Lexer.PERCENT)]),
+//   ],
+//   createNodes: tokens => [
+//     {
+//       type: Tree.UNIMPLEMENTED,
+//       value: tokensToString(tokens),
+//     },
+//   ],
+// }
+
+// const scaleFactorDeprecated: SyntaxRule = {
+//   name: 'scaleFactorDeprecated',
+//   rules: [
+//     zeroOrOne([token(Lexer.PERCENT)]),
+//     token(Lexer.DEPRECIATED_GERBER_IMAGE_SCALE_FACTOR),
+//     token(Lexer.ASTERISK),
+//     zeroOrOne([token(Lexer.PERCENT)]),
+//   ],
+//   createNodes: tokens => [
+//     {
+//       type: Tree.UNIMPLEMENTED,
+//       value: tokensToString(tokens),
+//     },
+//   ],
+// }
+
 const operation: SyntaxRule = {
   name: 'operation',
   rules: [
@@ -485,8 +581,7 @@ const unimplementedExtendedCommand: SyntaxRule = {
   name: 'unimplementedExtendedCommand',
   rules: [
     token(Lexer.PERCENT),
-    zeroOrMore([notToken(Lexer.ASTERISK)]),
-    token(Lexer.ASTERISK),
+    zeroOrMore([notToken(Lexer.PERCENT)]),
     token(Lexer.PERCENT),
   ],
   createNodes: tokens => [
@@ -517,6 +612,12 @@ export const gerberGrammar: SyntaxRule[] = [
   units,
   done,
   blockAperture,
+  // imageRotationDeprecated,
+  // imagePolarityDeprecated,
+  // imageAxesDeprecated,
+  // imageMirroringDeprecated,
+  // imageOffsetDeprecated,
+  // scaleFactorDeprecated,
   unimplementedExtendedCommand,
   // blockApertureStart,
   // blockApertureEnd,

@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.0.0-alpha.25",
+  "version": "5.0.1",
   "description": "Plot @hpcreery/tracespace-parser ASTs into image trees.",
   "types": "./lib/index.d.ts",
   "exports": {
@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/tracespace/tracespace#readme",
   "dependencies": {
-    "@hpcreery/tracespace-parser": "5.0.0-alpha.25",
+    "@hpcreery/tracespace-parser": "5.0.1",
     "@types/unist": "^2.0.6"
   }
 }

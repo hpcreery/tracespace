@@ -73,6 +73,12 @@ export const rules: Rules = {
   [Tokens.GERBER_STEP_REPEAT]: 'SR',
   [Tokens.GERBER_BLOCK_APERTURE]: 'AB',
   [Tokens.GERBER_MACRO_VARIABLE]: /\$\d+/,
+  [Tokens.DEPRECIATED_GERBER_IMAGE_AXES]: /AS(?:AXBY|AYBX)/,
+  [Tokens.DEPRECIATED_GERBER_IMAGE_POLARTIY]: /IP(?:POS|NEG)/,
+  [Tokens.DEPRECIATED_GERBER_IMAGE_ROTATION]: /IR(?:0|90|180|270)/,
+  [Tokens.DEPRECIATED_GERBER_IMAGE_MIRRORING]: /MI(?:A[01])?(?:B[01])?/,
+  [Tokens.DEPRECIATED_GERBER_IMAGE_SCALE_FACTOR]: /SF(?:A\d+(?:\.\d+)?)?(?:B\d+(?:\.\d+)?)?/,
+  [Tokens.DEPRECIATED_GERBER_IMAGE_OFFSET]: /OF(?:A[+-]?\d+(?:\.\d+)?)?(?:B[+-]?\d+(?:\.\d+)?)?/,
   [Tokens.SEMICOLON]: ';',
   [Tokens.DRILL_UNITS]: /^(?:METRIC|INCH)/,
   [Tokens.DRILL_ZERO_INCLUSION]: {
