@@ -125,6 +125,16 @@ function parseMacroExpression(tokens: Lexer.Token[]): MacroValue {
 
     if (token?.type === Lexer.NUMBER) return Number(token.value)
     if (token?.type === Lexer.GERBER_MACRO_VARIABLE) return token.value
+    if (token?.type === Lexer.OPERATOR && token.text === '-') return {
+      left: -1,
+      right: parsePrimary(),
+      operator: 'x',
+    }
+    if (token?.type === Lexer.OPERATOR && token.text === '+') return {
+      left: 1,
+      right: parsePrimary(),
+      operator: 'x',
+    }
 
     // Else, we've got a parentheses group, so parse it and consume the ")"
     const expression = parseAddition()
